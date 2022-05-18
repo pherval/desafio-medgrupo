@@ -6,9 +6,15 @@ import { CardComponent } from './card/card.component';
 import { SchoolsService } from './schools.service';
 import { SharedModule } from '../shared/shared.module';
 import { NewSchoolComponent } from './new-school/new-school.component';
+import { ListingSchoolsComponent } from './listing-schools/listing-schools.component';
 
 @NgModule({
-  declarations: [SchoolsComponent, CardComponent, NewSchoolComponent],
+  declarations: [
+    SchoolsComponent,
+    CardComponent,
+    NewSchoolComponent,
+    ListingSchoolsComponent,
+  ],
   imports: [CommonModule, SchoolsRoutingModule, SharedModule],
   providers: [SchoolsService],
 })

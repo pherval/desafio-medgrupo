@@ -1,0 +1,19 @@
+$gap: 4rem;
+
+.container {
+  gap: $gap;
+}
+
+.container > * {
+  position: relative;
+}
+
+.container > *:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -$gap/2;
+  height: 100%;
+  top: 0;
+  width: 1px;
+  background-color: red;
+}

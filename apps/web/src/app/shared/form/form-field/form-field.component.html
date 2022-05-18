@@ -1,0 +1,14 @@
+<div
+  class="form-field flex flex-col gap-2"
+  (click)="inputRef && (inputRef.focus = true)"
+>
+  <label *ngIf="label" [for]="labelFor">{{ label }}</label>
+  <div
+    class="flex flex-row items-center gap-3 p-2 border-2 border-slate-200 rounded bg-gray-50"
+    [ngClass]="{ 'border-blue-200': focused }"
+  >
+    <ng-content select="[appInputAdornment='left']"></ng-content>
+    <ng-content select="[appInput]"></ng-content>
+    <ng-content select="[appInputAdornment='right']"></ng-content>
+  </div>
+</div>

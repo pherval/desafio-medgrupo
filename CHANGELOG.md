@@ -18,6 +18,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - reusable buttons
 - Card component
 - Button with themes primary and outlined
+- Input reusable directive
+- Input adornments
+- Form field, a complete form input with label and adornments
 
 ## [0.1.0]
 

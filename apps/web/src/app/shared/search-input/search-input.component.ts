@@ -1,10 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { faClose, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-search-input',
   templateUrl: './search-input.component.html',
-  styleUrls: ['./search-input.component.scss'],
 })
 export class SearchInputComponent {
   @Input() placeholder: string = '';

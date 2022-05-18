@@ -6,6 +6,7 @@ import { ButtonDirective } from './button.directive';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { CardComponent } from './card/card.component';
 import { CardSectionComponent } from './card/card-section/card-section.component';
+import { FormModule } from './form/form.module';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,14 @@ import { CardSectionComponent } from './card/card-section/card-section.component
     CardComponent,
     CardSectionComponent,
   ],
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, FormModule],
   exports: [
     FontAwesomeModule,
     ButtonDirective,
     SearchInputComponent,
     CardComponent,
     CardSectionComponent,
+    FormModule,
   ],
   providers: [TypeAheadService],
 })

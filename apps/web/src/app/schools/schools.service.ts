@@ -25,6 +25,12 @@ export type School = {
     complement?: string;
     zipCode: string;
   };
+
+  classes: Classes[];
+};
+
+type Classes = {
+  students: number;
 };
 
 type SchoolDTO = {
@@ -38,6 +44,12 @@ type SchoolDTO = {
   telefones: string[];
   email?: string;
   complemento?: string;
+  turmas: Turma[];
+};
+
+type Turma = {
+  escolaId: number;
+  alunos: number;
 };
 
 @Injectable()
@@ -57,7 +69,7 @@ export class SchoolsService {
   }
 
   private static get resourceUrl(): string {
-    return `${this.baseUrl}/escolas`;
+    return `${this.baseUrl}/escolas?_embed=turmas`;
   }
 
   private mapper({
@@ -71,6 +83,7 @@ export class SchoolsService {
     endereco,
     email,
     complemento,
+    turmas,
   }: SchoolDTO): School {
     return {
       id,
@@ -92,6 +105,10 @@ export class SchoolsService {
       },
 
       supervisor,
+
+      classes: turmas.map((t) => ({
+        students: t.alunos,
+      })),
     };
   }
 }

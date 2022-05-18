@@ -10,9 +10,7 @@ import {
   selector: '[appButton]',
 })
 export class ButtonDirective {
-  @Input() theme?: 'primary';
-
-  constructor(private el: ElementRef) {}
+  @Input() theme: keyof typeof this.themes = 'primary';
 
   @HostBinding('class') get className() {
     return [
@@ -21,9 +19,8 @@ export class ButtonDirective {
     ].join(' ');
   }
 
-  private get themes() {
-    return {
-      primary: 'bg-sky-600 text-gray-50',
-    };
-  }
+  private themes = {
+    primary: 'bg-sky-600 text-gray-50',
+    outlined: 'text-slate-700 border border-slate-700',
+  };
 }

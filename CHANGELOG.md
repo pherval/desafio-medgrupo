@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - navigational menu
 - reusable buttons
 - Card component
+- Button with themes primary and outlined
 
 ## [0.1.0]
 

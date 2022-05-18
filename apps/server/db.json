@@ -5,9 +5,33 @@
   "escolas": [
     {
       "id": 1,
-      "nome": "Escola Municial",
-      "porte": "2",
-      "situacao_funcionamento": "ativo"
+      "nome": "Casimiro de Abreu",
+      "cie": "000760",
+      "endereco": "Rua Vicente Ferreira Leite, 489 – Limão",
+      "cep": "02723-000",
+      "situacao_funcionamento": "ativo",
+      "supervisor": "Cassia",
+      "telefones": ["2796-6399", "2694-0185"]
+    },
+    {
+      "id": 2,
+      "nome": "Anésia Sincorá, Profª",
+      "cie": "003530",
+      "endereco": "Rua José Bernardo Pinto, s/nº – Vila Guilherme",
+      "cep": "02055-000",
+      "situacao_funcionamento": "ativo",
+      "supervisor": "Gerson",
+      "telefones": ["2909-0009"]
+    },
+    {
+      "id": 3,
+      "nome": "Anésia Sincorá, Profª",
+      "cie": "003530",
+      "endereco": "Rua José Bernardo Pinto, s/nº – Vila Guilherme",
+      "cep": "02055-000",
+      "situacao_funcionamento": "ativo",
+      "supervisor": "Gerson",
+      "telefones": ["2909-0009"]
     }
   ],
   "turmas": [{ "escola_id": 1 }]

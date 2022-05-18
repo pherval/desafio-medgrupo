@@ -1,16 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  BehaviorSubject,
-  debounceTime,
-  distinctUntilChanged,
-  filter,
-  from,
-  map,
-  Subject,
-  switchMap,
-  tap,
-  type Observable,
-} from 'rxjs';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { type Observable } from 'rxjs';
 import { TypeAheadService } from '../shared/type-ahead.service';
 import { type School, SchoolsService } from './schools.service';
 
@@ -21,15 +11,13 @@ import { type School, SchoolsService } from './schools.service';
 })
 export class SchoolsComponent implements OnInit {
   schools$?: Observable<School[]>;
-  typeahead$: Subject<string>;
   filtered$?: Observable<School[]>;
+  faPlus = faPlus;
 
   constructor(
     private schoolsService: SchoolsService,
     private typeAhead: TypeAheadService<School>
-  ) {
-    this.typeahead$ = new BehaviorSubject<string>('');
-  }
+  ) {}
 
   ngOnInit(): void {
     this.schools$ = this.schoolsService.all();

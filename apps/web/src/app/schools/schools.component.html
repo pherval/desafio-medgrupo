@@ -8,7 +8,9 @@
         placeholder="buscar pelo nome da escola"
         (keyup)="filter(search.value)"
       />
-      <button>Adicionar Escola</button>
+      <button [routerLink]="['/escolas', 'novo']" appButton>
+        <fa-icon [icon]="faPlus"></fa-icon> Adicionar Escola
+      </button>
     </div>
   </header>
   <section

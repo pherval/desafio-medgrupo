@@ -1,0 +1,8 @@
+<a
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="routerLinkActiveOptions || { exact: false }"
+  class="flex flex-col items-center gap-2 w-full h-full"
+>
+  <fa-icon size="lg" [icon]="icon" *ngIf="icon"></fa-icon>
+  <ng-content></ng-content>
+</a>

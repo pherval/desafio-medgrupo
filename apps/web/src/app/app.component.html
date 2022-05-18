@@ -1,10 +1,6 @@
-<header>
-  <nav>
-    <ul>
-      <li>Home</li>
-      <li>Escolas</li>
-    </ul>
-  </nav>
+<header class="bg-indigo-500">
+  <app-menu [menu]="menu"></app-menu>
 </header>
-
-<router-outlet></router-outlet>
+<main>
+  <router-outlet></router-outlet>
+</main>

@@ -7,18 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Web
+
+#### Added
+
+- Type Ahead to filter schools by name
+- school service read all schools from backend
+- list schools within cards
+- navigational menu
+
 ## [0.1.0]
 
 ### Added
 
 - turborepo setup
 
-### Web
+#### Web
 
 - angular project create with `ng new`
 - setup eslint
 
-### Server
+#### Server
 
 - setup `json-server` to run a mock backend api
 

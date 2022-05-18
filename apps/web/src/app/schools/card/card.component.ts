@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -8,6 +8,5 @@ import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 })
 export class CardComponent {
   @Input() name: string = '';
-  @Input() supervisor: string = '';
   icon = faGraduationCap;
 }

@@ -12,14 +12,18 @@
   </div>
 </header>
 <section
-  class="md:grid md:grid-cols-2 md:gap-x-4 gap-y-4 flex flex-col"
+  class="gap-4 flex flex-col listing"
   *ngIf="filtered$ | async as schools; else loading"
 >
-  <app-card
-    *ngFor="let school of schools"
-    [name]="school.name"
-    [supervisor]="school.supervisor"
-  ></app-card>
+  <app-card *ngFor="let school of schools" [name]="school.name">
+    <app-card-section [divider]="false">
+      <fa-icon size="2x" [icon]="faGraducationCap"></fa-icon>
+      <h2>{{ school.name }}</h2>
+    </app-card-section>
+    <app-card-section title="Supervisor(a)"
+      ><p>{{ school.supervisor }}</p></app-card-section
+    >
+  </app-card>
 </section>
 
 <ng-template #loading>

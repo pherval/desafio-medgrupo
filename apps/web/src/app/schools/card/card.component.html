@@ -1,14 +1,9 @@
-<div
-  class="container p-5 bg-gray-50 flex items-center grow shrink rounded-lg shadow-md"
+<section
+  class="p-5 bg-gray-50 flex items-center grow shrink rounded-lg shadow-md gap-8"
 >
-  <div class="flex flex-col gap-4 items-center">
+  <app-card-section [divider]="false">
     <fa-icon size="2x" [icon]="icon"></fa-icon>
     <h2>{{ name }}</h2>
-  </div>
-
-  <div class="space-y-3">
-    <h3 class="text-gray-400 font-bold">Supervisor</h3>
-    <p>{{ supervisor }}</p>
-  </div>
+  </app-card-section>
   <ng-content select="app-card-section"></ng-content>
-</div>
+</section>

@@ -11,3 +11,10 @@ header {
     justify-content: space-between;
   }
 }
+
+.listing {
+  @media screen and (min-width: 740px) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(max-content, 1fr));
+  }
+}

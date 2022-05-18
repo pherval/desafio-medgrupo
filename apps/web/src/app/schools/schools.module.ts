@@ -7,6 +7,7 @@ import { SchoolsService } from './schools.service';
 import { SharedModule } from '../shared/shared.module';
 import { NewSchoolComponent } from './new-school/new-school.component';
 import { ListingSchoolsComponent } from './listing-schools/listing-schools.component';
+import { CardSectionComponent } from './card/card-section/card-section.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ListingSchoolsComponent } from './listing-schools/listing-schools.compo
     CardComponent,
     NewSchoolComponent,
     ListingSchoolsComponent,
+    CardSectionComponent,
   ],
   imports: [CommonModule, SchoolsRoutingModule, SharedModule],
   providers: [SchoolsService],

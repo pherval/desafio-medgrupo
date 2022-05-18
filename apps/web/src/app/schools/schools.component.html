@@ -2,12 +2,11 @@
   <header class="my-4">
     <h1 class="text-3xl">Escolas</h1>
     <div class="flex space-x-4 items-center">
-      <input
-        #search
-        type="search"
-        placeholder="buscar pelo nome da escola"
-        (keyup)="filter(search.value)"
-      />
+      <app-search-input
+        placeholder="Buque por uma escola"
+        (type)="filter($event)"
+        (clear)="filter('')"
+      ></app-search-input>
       <button [routerLink]="['/escolas', 'novo']" appButton>
         <fa-icon [icon]="faPlus"></fa-icon> Adicionar Escola
       </button>

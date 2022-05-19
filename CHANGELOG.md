@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2022-05-19
+
 ### Web
 
 #### Added
@@ -19,9 +21,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.0] - 2022-05-18
 
-### Web
+### Added
 
-#### Added
+- Deploy to heroku with GitHub Actions
+
+#### Web
 
 - Type Ahead to filter schools by name
 - school service read all schools from backend
@@ -49,6 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - setup `json-server` to run a mock backend api
 
-[unreleased]: https://github.com/pherval/desafio-medgroup/compare/v0.2.0...HEAD
+[unreleased]: https://github.com/pherval/desafio-medgroup/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/pherval/desafio-medgroup/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/pherval/desafio-medgroup/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/pherval/desafio-medgroup/releases/tag/v0.1.0

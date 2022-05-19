@@ -1,1 +1,14 @@
-<p>new-classes works!</p>
+<div
+  class="flex justify-center"
+  *ngIf="schoolId$ | async as schoolId; else error"
+>
+  <app-classes-form
+    (save)="save(schoolId, $event)"
+    [schoolId]="schoolId"
+    [classes]="classes"
+  ></app-classes-form>
+</div>
+
+<ng-template #error>
+  <p>Escola não encontrada</p>
+</ng-template>

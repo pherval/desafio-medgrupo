@@ -25,9 +25,21 @@ export class ClassesService {
       .pipe(map((classes) => classes.map(this.mapper)));
   }
 
+  save(schoolId: number, classes: Classes): Observable<Classes> {
+    return this.http
+      .post<ClassesDTO>(ClassesService.resource(schoolId), this.toDTO(classes))
+      .pipe(map(this.mapper));
+  }
+
   private mapper({ alunos }: ClassesDTO): Classes {
     return {
       students: alunos,
+    };
+  }
+
+  private toDTO({ students }: Classes): ClassesDTO {
+    return {
+      alunos: students,
     };
   }
 }

@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - show single school screen
 - route to /turmas from /escolas/:id/turmas
 - list card of classes for school
+- save classes for schools
 
 ## [0.3.0] - 2022-05-19
 

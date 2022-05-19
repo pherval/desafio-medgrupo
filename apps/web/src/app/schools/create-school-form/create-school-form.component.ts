@@ -59,7 +59,6 @@ export class CreateSchoolFormComponent implements OnDestroy {
       }),
 
       supervisor: ['', Validators.required],
-      status: [false],
       classes: this.formBuilder.array([]),
       contacts: this.formBuilder.group({
         phones: this.formBuilder.array([this.formBuilder.control('')]),

@@ -6,7 +6,6 @@
       "cie": "000760",
       "endereco": "Rua Vicente Ferreira Leite, 489 – Limão",
       "cep": "02723-000",
-      "situacao_funcionamento": "ativo",
       "supervisor": "Cassia",
       "telefones": ["2796-6399", "2694-0185"]
     },
@@ -16,7 +15,6 @@
       "cie": "003530",
       "endereco": "Rua José Bernardo Pinto, s/nº – Vila Guilherme",
       "cep": "02055-000",
-      "situacao_funcionamento": "ativo",
       "supervisor": "Gerson",
       "telefones": ["2909-0009"]
     },
@@ -26,7 +24,6 @@
       "cie": "003530",
       "endereco": "Rua José Bernardo Pinto, s/nº – Vila Guilherme",
       "cep": "02055-000",
-      "situacao_funcionamento": "ativo",
       "supervisor": "Gerson",
       "telefones": ["2909-0009"]
     },
@@ -34,7 +31,6 @@
       "nome": "asdok",
       "cie": "asdok",
       "endereco": "asd",
-      "situacao_funcionamento": "desativado",
       "telefones": [""],
       "email": "",
       "turmas": [],

@@ -3,16 +3,10 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
-enum Operation {
-  deactivated = 0,
-  activated,
-}
-
 export type School = {
   id: number;
   name: string;
   cie: string;
-  status: Operation;
   contacts: {
     phones: string[];
     email?: string;
@@ -39,7 +33,6 @@ type SchoolDTO = {
   cie: string;
   endereco: string;
   cep: string;
-  situacao_funcionamento: 'ativo' | 'desativado';
   supervisor: string;
   telefones: string[];
   email?: string;
@@ -80,7 +73,6 @@ export class SchoolsService {
 
   private toDTO({
     supervisor,
-    status,
     id,
     name,
     cie,
@@ -94,8 +86,6 @@ export class SchoolsService {
       cie,
       endereco: address.street,
       cep: address.zipCode,
-      situacao_funcionamento:
-        status === Operation.activated ? 'ativo' : 'desativado',
       telefones: contacts.phones,
       email: contacts.email,
       turmas: classes.map((c) => ({ alunos: c.students, escolaId: id })),
@@ -110,7 +100,6 @@ export class SchoolsService {
     cie,
     supervisor,
     telefones,
-    situacao_funcionamento,
     endereco,
     email,
     complemento,
@@ -120,10 +109,6 @@ export class SchoolsService {
       id,
       name: nome,
       cie,
-      status:
-        situacao_funcionamento === 'ativo'
-          ? Operation.activated
-          : Operation.deactivated,
       contacts: {
         phones: telefones,
         email,

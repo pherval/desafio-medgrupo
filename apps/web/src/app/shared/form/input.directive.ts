@@ -13,6 +13,7 @@ export class InputDirective {
   @Input() name?: string;
   @Input() id?: string;
   @Input() adornment: 'left' | 'right' = 'right';
+
   private _focus: boolean = false;
 
   constructor(private el: ElementRef<HTMLInputElement>) {}

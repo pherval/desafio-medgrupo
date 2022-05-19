@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - search address from zipcode
 - save schools to backend
 - button themes
+- show school error on its form
 
 ## [0.2.0] - 2022-05-18
 

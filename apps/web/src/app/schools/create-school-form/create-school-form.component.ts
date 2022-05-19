@@ -63,7 +63,7 @@ export class CreateSchoolFormComponent implements OnDestroy {
       classes: this.formBuilder.array([]),
       contacts: this.formBuilder.group({
         phones: this.formBuilder.array([this.formBuilder.control('')]),
-        email: [''],
+        email: ['', Validators.email],
       }),
     });
   }
@@ -74,6 +74,13 @@ export class CreateSchoolFormComponent implements OnDestroy {
 
   get zipcode(): FormControl {
     return this.schoolForm.get('address.zipcode') as FormControl;
+  }
+
+  hasError(path: string | (string | number)[]): boolean {
+    const control = this.schoolForm.get(path);
+    if (!control) return false;
+
+    return control.invalid && control.touched;
   }
 
   getPhone(index: number): FormControl {

@@ -4,17 +4,21 @@
   (ngSubmit)="$event.preventDefault(); save()"
 >
   <div class="form-group">
-    <app-form-field label="Nome da Escola">
+    <app-form-field label="Nome da Escola" [hasError]="hasError('name')">
       <fa-icon [icon]="faSchool" appInputAdornment="left"></fa-icon>
       <input
         appInput
         type="text"
         id="name"
         name="name"
+        required
         formControlName="name"
       />
+      <app-field-error *ngIf="hasError('name')">
+        Nome é obrigatório
+      </app-field-error>
     </app-form-field>
-    <app-form-field label="CIE">
+    <app-form-field label="CIE" [hasError]="hasError('cie')">
       <span appInputAdornment="left">#</span>
       <input
         appInput
@@ -24,11 +28,17 @@
         id="cie"
         formControlName="cie"
       />
+      <app-field-error *ngIf="hasError('cie')">
+        Cie é obrigatório
+      </app-field-error>
     </app-form-field>
   </div>
   <div class="form-group flex flex-col gap-4" formGroupName="address">
     <h2 class="title">Endereço</h2>
-    <app-form-field label="Código Postal">
+    <app-form-field
+      label="Código Postal"
+      [hasError]="hasError('address.zipcode')"
+    >
       <fa-icon [icon]="faMap" appInputAdornment="left"></fa-icon>
       <input
         appInput
@@ -40,7 +50,7 @@
         formControlName="zipcode"
       />
     </app-form-field>
-    <app-form-field label="Rua">
+    <app-form-field label="Rua" [hasError]="hasError('address.street')">
       <fa-icon [icon]="faAddressBook" appInputAdornment="left"></fa-icon>
       <input
         appInput
@@ -50,7 +60,10 @@
         formControlName="street"
       />
     </app-form-field>
-    <app-form-field label="Complemento">
+    <app-form-field
+      label="Complemento"
+      [hasError]="hasError('address.complement')"
+    >
       <fa-icon [icon]="faPersonChalkboard" appInputAdornment="left"></fa-icon>
       <input
         appInput
@@ -67,7 +80,7 @@
     <input type="checkbox" name="status" formControlName="status" id="status" />
   </div>
 
-  <app-form-field label="Supervisor(a)">
+  <app-form-field label="Supervisor(a)" [hasError]="hasError('supervisor')">
     <fa-icon [icon]="faPeopleCarry" appInputAdornment="left"></fa-icon>
     <input
       appInput
@@ -76,6 +89,9 @@
       id="supervisor"
       formControlName="supervisor"
     />
+    <app-field-error *ngIf="hasError('supervisor')">
+      Supervisor é obrigatório
+    </app-field-error>
   </app-form-field>
 
   <div class="form-group" formGroupName="contacts">

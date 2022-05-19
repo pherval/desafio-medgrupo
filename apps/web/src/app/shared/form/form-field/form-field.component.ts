@@ -14,6 +14,7 @@ import { InputDirective } from '../input.directive';
 })
 export class FormFieldComponent implements AfterContentInit {
   @Input() label?: string;
+  @Input() hasError: boolean = false;
   @ContentChild(InputDirective, { static: true })
   inputRef?: InputDirective;
   labelFor?: string;

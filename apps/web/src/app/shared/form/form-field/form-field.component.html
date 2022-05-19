@@ -5,10 +5,11 @@
   <label *ngIf="label" [for]="labelFor">{{ label }}</label>
   <div
     class="flex flex-row items-center gap-3 p-2 border-2 border-slate-200 rounded bg-gray-50"
-    [ngClass]="{ 'border-blue-200': focused }"
+    [ngClass]="{ 'border-blue-200': focused, 'border-red-300': hasError }"
   >
     <ng-content select="[appInputAdornment='left']"></ng-content>
     <ng-content select="[appInput]"></ng-content>
     <ng-content select="[appInputAdornment='right']"></ng-content>
   </div>
+  <ng-content select="app-field-error"></ng-content>
 </div>

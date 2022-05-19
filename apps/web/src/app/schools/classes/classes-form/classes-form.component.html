@@ -1,0 +1,31 @@
+<div class="flex justify-center">
+  <form
+    class="flex flex-col gap-8"
+    [formGroup]="form"
+    (ngSubmit)="handleSubmit($event)"
+  >
+    <div class="form-group">
+      <app-form-field label="Estudantes">
+        <fa-icon [icon]="faUsers" appInputAdornment="left"></fa-icon>
+        <input
+          type="number"
+          appInput
+          id="students"
+          name="students"
+          formControlName="students"
+        />
+      </app-form-field>
+    </div>
+    <div class="flex gap-4">
+      <button
+        type="button"
+        [routerLink]="['/escolas', schoolId, 'turmas']"
+        appButton
+        theme="secondary"
+      >
+        Cancelar
+      </button>
+      <button type="submit" appButton>Salvar</button>
+    </div>
+  </form>
+</div>

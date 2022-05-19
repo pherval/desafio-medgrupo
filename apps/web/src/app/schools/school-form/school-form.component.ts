@@ -25,6 +25,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { ZipcodeService } from 'src/app/shared/zipcode.service';
+import { SnackbarService } from 'src/app/snackbar.service';
 import { type School } from '../schools.service';
 
 @Component({
@@ -54,7 +55,8 @@ export class SchoolFormComponent implements OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
-    private addressService: ZipcodeService
+    private addressService: ZipcodeService,
+    private snackbar: SnackbarService
   ) {
     this.save = new EventEmitter();
 
@@ -113,6 +115,8 @@ export class SchoolFormComponent implements OnDestroy {
     if (this.schoolForm.valid) {
       this.save.emit({ ...this.schoolForm.value });
       this.clear();
+    } else {
+      this.snackbar.open({ message: 'formulário inválido' });
     }
   }
 

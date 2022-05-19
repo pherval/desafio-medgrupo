@@ -1,5 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription, type Observable } from 'rxjs';
+import { SnackbarService } from 'src/app/snackbar.service';
 import { type School, SchoolsService } from '../schools.service';
 
 @Component({
@@ -10,14 +12,23 @@ import { type School, SchoolsService } from '../schools.service';
 export class NewSchoolComponent implements OnDestroy {
   private saveObs?: Subscription;
 
-  constructor(private schoolService: SchoolsService) {}
+  constructor(
+    private schoolService: SchoolsService,
+    private snackbar: SnackbarService,
+    private router: Router
+  ) {}
 
   save(school: School) {
     this.saveObs = this.schoolService.save(school).subscribe(
       (school) => {
-        console.warn('successfully saved', school);
+        this.router.navigate(['/escolas']);
+        this.snackbar.open({ message: 'escola salva com sucesso' });
       },
-      (error) => console.error('error savind', error)
+      (error) =>
+        this.snackbar.open({
+          message:
+            'Erro inesperado. Não foi possível salvar a escola. Tente Novamente',
+        })
     );
   }
 

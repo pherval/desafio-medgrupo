@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Web
 
 - show single school screen
+- route to /turmas from /escolas/:id/turmas
 
 ## [0.3.0] - 2022-05-19
 

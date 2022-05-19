@@ -1,8 +1,32 @@
 <div *ngIf="school$ | async as school; else emptyState">
+  <nav class="bg-gray-50 text-indigo-500 px-8 mb-10">
+    <ul class="flex flex-row gap-8">
+      <li>
+        <a
+          class="py-4 inline-block"
+          [routerLink]="['/escolas', school.id]"
+          routerLinkActive="activated"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Escola</a
+        >
+      </li>
+      <li>
+        <a
+          class="py-4 inline-block"
+          [routerLink]="['/escolas', school.id, 'turmas']"
+          routerLinkActive="activated"
+          >Turmas</a
+        >
+      </li>
+    </ul>
+  </nav>
+
   <header class="flex justify-center gap-10 text-4xl">
     <fa-icon [icon]="faGraduationCap"></fa-icon>
     <h1>{{ school.name }}</h1>
   </header>
+
+  <router-outlet></router-outlet>
 </div>
 
 <ng-template #emptyState>

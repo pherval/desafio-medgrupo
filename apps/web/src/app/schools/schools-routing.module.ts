@@ -11,7 +11,17 @@ const routes: Routes = [
     component: SchoolsComponent,
     children: [
       { path: 'novo', component: NewSchoolComponent },
-      { path: ':id', component: ShowSchoolComponent },
+      {
+        path: ':id',
+        component: ShowSchoolComponent,
+        children: [
+          {
+            path: 'turmas',
+            loadChildren: () =>
+              import('./classes/classes.module').then((m) => m.ClassesModule),
+          },
+        ],
+      },
       { path: '**', component: ListingSchoolsComponent },
     ],
   },

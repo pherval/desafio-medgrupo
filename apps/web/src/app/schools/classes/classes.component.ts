@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, switchMap } from 'rxjs';
+import { type Classes, ClassesService } from './classes.service';
 
 @Component({
   selector: 'app-classes',
@@ -6,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./classes.component.scss'],
 })
 export class ClassesComponent implements OnInit {
-  constructor() {}
+  classes$?: Observable<Classes[]>;
 
-  ngOnInit(): void {}
+  constructor(private route: ActivatedRoute, private classes: ClassesService) {}
+
+  ngOnInit(): void {
+    this.classes$ = this.route?.parent?.parent?.params?.pipe(
+      switchMap(({ id }) => this.classes.all(id))
+    );
+  }
 }

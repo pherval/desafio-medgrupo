@@ -1,1 +1,19 @@
-<p>classes works!</p>
+<h2 class="text-2xl mb-4 text-center">Turmas</h2>
+<div *ngIf="classes$ | async as classes">
+  <div class="flex gap-10">
+    <app-card *ngFor="let class of classes">
+      <app-card-section title="Estudantes" [divider]="false">{{
+        class.students
+      }}</app-card-section>
+    </app-card>
+  </div>
+
+  <ng-container
+    *ngIf="classes.length <= 0"
+    [ngTemplateOutlet]="emptyState"
+  ></ng-container>
+</div>
+
+<ng-template #emptyState>
+  <p class="text-center">nenhuma turma cadastrada</p>
+</ng-template>

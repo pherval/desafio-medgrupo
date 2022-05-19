@@ -8,6 +8,7 @@ import { NewSchoolComponent } from './new-school/new-school.component';
 import { ListingSchoolsComponent } from './listing-schools/listing-schools.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SchoolFormComponent } from './school-form/school-form.component';
+import { ShowSchoolComponent } from './show-school/show-school.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SchoolFormComponent } from './school-form/school-form.component';
     NewSchoolComponent,
     ListingSchoolsComponent,
     SchoolFormComponent,
+    ShowSchoolComponent,
   ],
   imports: [
     CommonModule,

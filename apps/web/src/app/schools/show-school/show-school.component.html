@@ -1,0 +1,13 @@
+<div *ngIf="school$ | async as school; else emptyState">
+  <header class="flex justify-center gap-10 text-4xl">
+    <fa-icon [icon]="faGraduationCap"></fa-icon>
+    <h1>{{ school.name }}</h1>
+  </header>
+</div>
+
+<ng-template #emptyState>
+  <div class="flex flex-col gap-20 items-center justify-center grow">
+    <p>Não existe escola com esse nome</p>
+    <button appButton routerLink="/escolas" theme="outlined">Sair</button>
+  </div>
+</ng-template>

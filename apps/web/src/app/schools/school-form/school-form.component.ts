@@ -90,7 +90,10 @@ export class SchoolFormComponent implements OnDestroy {
     const control = this.schoolForm.get(path);
     if (!control) return false;
 
-    return control.invalid && (control.touched || this.submitted);
+    return (
+      control.invalid &&
+      (control.touched || (this.submitted && this.schoolForm.invalid))
+    );
   }
 
   getPhone(index: number): FormControl {

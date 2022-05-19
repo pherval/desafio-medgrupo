@@ -37,7 +37,7 @@ type SchoolDTO = {
   telefones: string[];
   email?: string;
   complemento?: string;
-  turmas: Turma[];
+  turmas?: Turma[];
 };
 
 type Turma = {
@@ -63,12 +63,22 @@ export class SchoolsService {
       .pipe(map(this.mapper));
   }
 
+  get(id: number): Observable<School> {
+    return this.http
+      .get<SchoolDTO>(`${SchoolsService.resource}/${id}`)
+      .pipe(map(this.mapper));
+  }
+
   private static get baseUrl(): string {
     return this.BASE_URL;
   }
 
+  private static get resource(): string {
+    return `${this.baseUrl}/escolas`;
+  }
+
   private static get resourceUrl(): string {
-    return `${this.baseUrl}/escolas?_embed=turmas`;
+    return `${this.resource}?_embed=turmas`;
   }
 
   private toDTO({
@@ -122,9 +132,10 @@ export class SchoolsService {
 
       supervisor,
 
-      classes: turmas.map((t) => ({
-        students: t.alunos,
-      })),
+      classes:
+        turmas?.map((t) => ({
+          students: t.alunos,
+        })) ?? [],
     };
   }
 }

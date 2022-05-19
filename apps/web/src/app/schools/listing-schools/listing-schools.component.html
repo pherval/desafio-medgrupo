@@ -15,7 +15,12 @@
   class="gap-4 flex flex-col listing"
   *ngIf="filtered$ | async as schools; else loading"
 >
-  <app-card *ngFor="let school of schools" [name]="school.name">
+  <app-card
+    *ngFor="let school of schools"
+    class="cursor-pointer"
+    [name]="school.name"
+    [routerLink]="['/escolas', school.id]"
+  >
     <app-card-section [divider]="false">
       <fa-icon size="2x" [icon]="faGraducationCap"></fa-icon>
       <h2>{{ school.name }}</h2>

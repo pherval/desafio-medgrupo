@@ -4,3 +4,13 @@
 <main>
   <router-outlet></router-outlet>
 </main>
+<ng-container
+  *ngIf="message$ | async as message"
+  [ngTemplateOutlet]="snackbar"
+  [ngTemplateOutletContext]="{message}"
+>
+</ng-container>
+
+<ng-template let-message="message" #snackbar>
+  <app-snackbar *ngIf="message[0]">{{ message[1].text }}</app-snackbar>
+</ng-template>

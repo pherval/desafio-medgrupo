@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, switchMap } from 'rxjs';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { map, Observable, switchMap } from 'rxjs';
 import { type Classes, ClassesService } from './classes.service';
 
 @Component({
@@ -10,12 +11,19 @@ import { type Classes, ClassesService } from './classes.service';
 })
 export class ClassesComponent implements OnInit {
   classes$?: Observable<Classes[]>;
+  schoolId$?: Observable<number>;
+
+  faPlus = faPlus;
 
   constructor(private route: ActivatedRoute, private classes: ClassesService) {}
 
   ngOnInit(): void {
-    this.classes$ = this.route?.parent?.parent?.params?.pipe(
-      switchMap(({ id }) => this.classes.all(id))
+    this.schoolId$ = this.route?.parent?.parent?.params?.pipe(
+      map(({ id }) => id)
+    );
+
+    this.classes$ = this.schoolId$?.pipe(
+      switchMap((id) => this.classes.all(id))
     );
   }
 }

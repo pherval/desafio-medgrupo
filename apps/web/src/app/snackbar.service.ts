@@ -18,7 +18,7 @@ export class SnackbarService {
     this._message$ = new Subject();
   }
 
-  open({ timer = 2_000, message = '' } = {}) {
+  open({ timer = 5_000, message = '' } = {}) {
     this.open$.next(true);
     this._message$.next({ text: message });
     setTimeout(() => this.close(), timer);

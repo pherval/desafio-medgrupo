@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Web
+
+#### Added
+
+- search address from zipcode
+- persist schools data on backend
+
 ## [0.2.0] - 2022-05-18
 
 ### Web

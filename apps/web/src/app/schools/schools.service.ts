@@ -64,12 +64,43 @@ export class SchoolsService {
       .pipe(map((schools) => schools.map(this.mapper)));
   }
 
+  save(school: School): Observable<School> {
+    return this.http
+      .post<SchoolDTO>(SchoolsService.resourceUrl, this.toDTO(school))
+      .pipe(map(this.mapper));
+  }
+
   private static get baseUrl(): string {
     return this.BASE_URL;
   }
 
   private static get resourceUrl(): string {
     return `${this.baseUrl}/escolas?_embed=turmas`;
+  }
+
+  private toDTO({
+    supervisor,
+    status,
+    id,
+    name,
+    cie,
+    address,
+    contacts,
+    classes,
+  }: School): SchoolDTO {
+    return {
+      id,
+      nome: name,
+      cie,
+      endereco: address.street,
+      cep: address.zipCode,
+      situacao_funcionamento:
+        status === Operation.activated ? 'ativo' : 'desativado',
+      telefones: contacts.phones,
+      email: contacts.email,
+      turmas: classes.map((c) => ({ alunos: c.students, escolaId: id })),
+      supervisor,
+    };
   }
 
   private mapper({

@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Web
 
+- Home page
 - show single school screen
 - route to /turmas from /escolas/:id/turmas
 - list card of classes for school

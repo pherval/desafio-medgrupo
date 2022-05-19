@@ -2,10 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-schools',
-  template: `
-    <section class="p-5 bg-indigo-50 h-full">
-      <router-outlet></router-outlet>
-    </section>
-  `,
+  template: ` <router-outlet></router-outlet> `,
 })
 export class SchoolsComponent {}

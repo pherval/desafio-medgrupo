@@ -4,7 +4,7 @@ import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 export type School = {
-  id: number;
+  id: string;
   name: string;
   cie: string;
   contacts: {
@@ -28,7 +28,7 @@ type Classes = {
 };
 
 type SchoolDTO = {
-  id: number;
+  id: string;
   nome: string;
   cie: string;
   endereco: string;
@@ -83,22 +83,18 @@ export class SchoolsService {
 
   private toDTO({
     supervisor,
-    id,
     name,
     cie,
     address,
     contacts,
-    classes,
-  }: School): SchoolDTO {
+  }: Omit<School, 'id' | 'classes'>): Omit<SchoolDTO, 'id' | 'classes'> {
     return {
-      id,
       nome: name,
       cie,
       endereco: address.street,
       cep: address.zipCode,
       telefones: contacts.phones,
       email: contacts.email,
-      turmas: classes.map((c) => ({ alunos: c.students, escolaId: id })),
       supervisor,
     };
   }

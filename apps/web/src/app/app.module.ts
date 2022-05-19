@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { MenuComponent } from './menu/menu.component';
 import { MenuItemComponent } from './menu/menu-item/menu-item.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     MenuItemComponent,
     MenuComponent,
     SnackbarComponent,
+    HomeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, SharedModule],
   providers: [],

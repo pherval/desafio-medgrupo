@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+h1,
+h2 {
+  font-weight: bolder;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+code {
+  background: white;
+  border-radius: 4px;
+  padding: 2rem;
+
+  .bash::before {
+    content: "$ ";
+  }
+}

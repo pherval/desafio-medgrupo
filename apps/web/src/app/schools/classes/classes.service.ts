@@ -9,6 +9,7 @@ export type Classes = {
 
 type ClassesDTO = {
   alunos: number;
+  escolaId: number;
 };
 
 @Injectable()
@@ -27,7 +28,10 @@ export class ClassesService {
 
   save(schoolId: number, classes: Classes): Observable<Classes> {
     return this.http
-      .post<ClassesDTO>(ClassesService.resource(schoolId), this.toDTO(classes))
+      .post<ClassesDTO>(
+        ClassesService.resource(schoolId),
+        this.toDTO(schoolId, classes)
+      )
       .pipe(map(this.mapper));
   }
 
@@ -37,8 +41,9 @@ export class ClassesService {
     };
   }
 
-  private toDTO({ students }: Classes): ClassesDTO {
+  private toDTO(schoolId: number, { students }: Classes): ClassesDTO {
     return {
+      escolaId: Number(schoolId),
       alunos: students,
     };
   }

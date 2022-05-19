@@ -13,12 +13,12 @@
 </header>
 <section
   class="gap-4 flex flex-col listing"
-  *ngIf="filtered$ | async as schools"
+  *ngIf="filtered$ | async as schools; else loading"
 >
   <ng-container *ngIf="schools.length <= 0" [ngTemplateOutlet]="emptyState">
   </ng-container>
   <app-card
-    *ngFor="let school of schools; else: emptyState"
+    *ngFor="let school of schools"
     class="cursor-pointer"
     [name]="school.name"
     [routerLink]="['/escolas', school.id]"

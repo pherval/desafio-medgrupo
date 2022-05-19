@@ -1,4 +1,4 @@
-<div *ngIf="school$ | async as school; else emptyState">
+<div *ngIf="school$ | async as school; else loading">
   <nav class="bg-gray-50 text-indigo-500 px-8 mb-10">
     <ul class="flex flex-row gap-8">
       <li>
@@ -28,6 +28,7 @@
 
   <h2 class="text-2xl mb-4 text-center">Turmas</h2>
 
+  <ng-container *ngIf="school" [ngTemplateOutlet]="emptyState"></ng-container>
   <router-outlet></router-outlet>
 </div>
 
@@ -36,4 +37,8 @@
     <p>Não existe escola com esse nome</p>
     <button appButton routerLink="/escolas" theme="outlined">Sair</button>
   </div>
+</ng-template>
+
+<ng-template #loading>
+  <p class="text-center">carregando...</p>
 </ng-template>

@@ -6,7 +6,7 @@
   class="absolute right-4"
   ><fa-icon [icon]="faPlus"></fa-icon> Adicionar Turma</a
 >
-<div *ngIf="classes$ | async as classes">
+<div *ngIf="classes$ | async as classes; else loading">
   <div class="flex gap-10">
     <app-card *ngFor="let class of classes">
       <app-card-section title="Estudantes" [divider]="false">{{
@@ -23,4 +23,8 @@
 
 <ng-template #emptyState>
   <p class="text-center">nenhuma turma cadastrada</p>
+</ng-template>
+
+<ng-template #loading>
+  <p class="text-center">carregando...</p>
 </ng-template>

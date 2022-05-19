@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+#### Web
+
+- loading state to listing schools
+- empty state for classes
+
 ## [0.4.0] - 2022-05-19
 
 ### Fixed

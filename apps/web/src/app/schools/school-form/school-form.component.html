@@ -1,7 +1,7 @@
 <form
   class="md:w-3/4 lg:w-1/2 mx-auto flex flex-col gap-4"
   [formGroup]="schoolForm"
-  (ngSubmit)="$event.preventDefault(); handleSave()"
+  (ngSubmit)="handleSave($event)"
 >
   <div class="form-group">
     <app-form-field label="Nome da Escola" [hasError]="hasError('name')">
@@ -104,7 +104,12 @@
     <div class="space-y-8" formArrayName="phones">
       <header class="flex justify-between items-center">
         <h2 class="text-xl">Telefone</h2>
-        <button appButton (click)="addPhone()" theme="secondary">
+        <button
+          type="button"
+          appButton
+          (click)="$event.stopImmediatePropagation(); addPhone()"
+          theme="secondary"
+        >
           <fa-icon [icon]="faPlus"></fa-icon>
           Adicionar telefone
         </button>
@@ -136,7 +141,12 @@
   </div>
 
   <div class="flex gap-4 mt-5 justify-center">
-    <button appButton [routerLink]="['/escolas']" theme="outlined">
+    <button
+      appButton
+      [routerLink]="['/escolas']"
+      theme="outlined"
+      type="button"
+    >
       Cancelar
     </button>
     <button appButton [disabled]="schoolForm.invalid" type="submit">

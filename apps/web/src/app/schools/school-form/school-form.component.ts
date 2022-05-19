@@ -50,6 +50,8 @@ export class SchoolFormComponent implements OnDestroy {
 
   addressSubscription?: Subscription;
 
+  submitted = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private addressService: ZipcodeService
@@ -86,7 +88,7 @@ export class SchoolFormComponent implements OnDestroy {
     const control = this.schoolForm.get(path);
     if (!control) return false;
 
-    return control.invalid && control.touched;
+    return control.invalid && (control.touched || this.submitted);
   }
 
   getPhone(index: number): FormControl {
@@ -103,7 +105,11 @@ export class SchoolFormComponent implements OnDestroy {
     return this.phones.removeAt(index);
   }
 
-  handleSave() {
+  handleSave(e: SubmitEvent) {
+    e.preventDefault();
+
+    this.submitted = true;
+
     if (this.schoolForm.valid) {
       this.save.emit({ ...this.schoolForm.value });
       this.clear();

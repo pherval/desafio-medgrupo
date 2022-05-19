@@ -7,6 +7,7 @@ import { SearchInputComponent } from './search-input/search-input.component';
 import { CardComponent } from './card/card.component';
 import { CardSectionComponent } from './card/card-section/card-section.component';
 import { FormModule } from './form/form.module';
+import { ZipcodeService } from './zipcode.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,6 @@ import { FormModule } from './form/form.module';
     CardSectionComponent,
     FormModule,
   ],
-  providers: [TypeAheadService],
+  providers: [TypeAheadService, ZipcodeService],
 })
 export class SharedModule {}

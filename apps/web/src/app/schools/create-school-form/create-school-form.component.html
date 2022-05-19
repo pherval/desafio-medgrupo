@@ -1,0 +1,135 @@
+<form
+  class="md:w-3/4 lg:w-1/2 mx-auto flex flex-col gap-4"
+  [formGroup]="schoolForm"
+  (ngSubmit)="$event.preventDefault(); save()"
+>
+  <div class="form-group">
+    <app-form-field label="Nome da Escola">
+      <fa-icon [icon]="faSchool" appInputAdornment="left"></fa-icon>
+      <input
+        appInput
+        type="text"
+        id="name"
+        name="name"
+        formControlName="name"
+      />
+    </app-form-field>
+    <app-form-field label="CIE">
+      <span appInputAdornment="left">#</span>
+      <input
+        appInput
+        type="text"
+        placeholder="19223"
+        name="cie"
+        id="cie"
+        formControlName="cie"
+      />
+    </app-form-field>
+  </div>
+  <div class="form-group flex flex-col gap-4" formGroupName="address">
+    <h2 class="title">Endereço</h2>
+    <app-form-field label="Código Postal">
+      <fa-icon [icon]="faMap" appInputAdornment="left"></fa-icon>
+      <input
+        appInput
+        type="text"
+        name="zipcode"
+        id="zipcode"
+        (focusout)="searchZipcode()"
+        [value]="schoolForm.get('address.zipcode')"
+        formControlName="zipcode"
+      />
+    </app-form-field>
+    <app-form-field label="Rua">
+      <fa-icon [icon]="faAddressBook" appInputAdornment="left"></fa-icon>
+      <input
+        appInput
+        id="street"
+        type="text"
+        name="street"
+        formControlName="street"
+      />
+    </app-form-field>
+    <app-form-field label="Complemento">
+      <fa-icon [icon]="faPersonChalkboard" appInputAdornment="left"></fa-icon>
+      <input
+        appInput
+        type="text"
+        id="complement"
+        name="complement"
+        formControlName="complement"
+      />
+    </app-form-field>
+  </div>
+
+  <div>
+    <label for="status">Ativo</label>
+    <input type="checkbox" name="status" formControlName="status" id="status" />
+  </div>
+
+  <app-form-field label="Supervisor(a)">
+    <fa-icon [icon]="faPeopleCarry" appInputAdornment="left"></fa-icon>
+    <input
+      appInput
+      type="text"
+      name="supervisor"
+      id="supervisor"
+      formControlName="supervisor"
+    />
+  </app-form-field>
+
+  <div class="form-group" formGroupName="contacts">
+    <h2 class="title">Contatos</h2>
+    <app-form-field label="Email">
+      <fa-icon [icon]="faEnvelope" appInputAdornment="left"></fa-icon>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        appInput
+        formControlName="email"
+      />
+    </app-form-field>
+    <div class="space-y-8" formArrayName="phones">
+      <header class="flex justify-between items-center">
+        <h2 class="text-xl">Telefone</h2>
+        <button appButton (click)="addPhone()" theme="secondary">
+          <fa-icon [icon]="faPlus"></fa-icon>
+          Adicionar telefone
+        </button>
+      </header>
+      <div class="flex flex-col gap-3">
+        <div
+          class="flex gap-2"
+          *ngFor="let phone of phones.controls; let i = index"
+        >
+          <fa-icon
+            appButton
+            theme="danger"
+            [icon]="faClose"
+            (click)="removePhone(i)"
+          ></fa-icon>
+          <app-form-field>
+            <fa-icon [icon]="faPhone" appInputAdornment="left"></fa-icon>
+            <input
+              appInput
+              type="text"
+              name="phone"
+              id="phone"
+              [formControlName]="i"
+            />
+          </app-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex gap-4 mt-5 justify-center">
+    <button appButton [routerLink]="['/escolas']" theme="outlined">
+      Cancelar
+    </button>
+    <button appButton [disabled]="schoolForm.invalid" type="submit">
+      Salvar
+    </button>
+  </div>
+</form>

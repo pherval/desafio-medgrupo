@@ -1,0 +1,13 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  > .title {
+    font-size: 2rem;
+  }
+}
+
+form > .form-group {
+  margin-bottom: 1rem;
+}

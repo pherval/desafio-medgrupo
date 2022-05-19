@@ -29,7 +29,23 @@
       "situacao_funcionamento": "ativo",
       "supervisor": "Gerson",
       "telefones": ["2909-0009"]
+    },
+    {
+      "nome": "asdok",
+      "cie": "asdok",
+      "endereco": "asd",
+      "situacao_funcionamento": "desativado",
+      "telefones": [""],
+      "email": "",
+      "turmas": [],
+      "supervisor": "asd",
+      "id": 4
     }
   ],
-  "turmas": [{ "escolaId": 1, "alunos": 10 }]
+  "turmas": [
+    {
+      "escolaId": 1,
+      "alunos": 10
+    }
+  ]
 }

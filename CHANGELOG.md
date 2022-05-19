@@ -12,7 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Added
 
 - search address from zipcode
-- persist schools data on backend
+- save schools to backend
+- button themes
 
 ## [0.2.0] - 2022-05-18
 

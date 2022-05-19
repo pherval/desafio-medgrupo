@@ -1,4 +1,10 @@
-import { Component, Output, EventEmitter, OnDestroy } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  OnDestroy,
+  Input,
+} from '@angular/core';
 import {
   FormBuilder,
   type FormGroup,
@@ -22,12 +28,13 @@ import { ZipcodeService } from 'src/app/shared/zipcode.service';
 import { type School } from '../schools.service';
 
 @Component({
-  selector: 'app-create-school-form',
-  templateUrl: './create-school-form.component.html',
-  styleUrls: ['./create-school-form.component.scss'],
+  selector: 'app-school-form',
+  templateUrl: './school-form.component.html',
+  styleUrls: ['./school-form.component.scss'],
 })
-export class CreateSchoolFormComponent implements OnDestroy {
-  @Output() create: EventEmitter<School>;
+export class SchoolFormComponent implements OnDestroy {
+  @Input() school?: School;
+  @Output() save: EventEmitter<School>;
 
   faMap = faMap;
   faPlus = faPlus;
@@ -47,22 +54,22 @@ export class CreateSchoolFormComponent implements OnDestroy {
     private formBuilder: FormBuilder,
     private addressService: ZipcodeService
   ) {
-    this.create = new EventEmitter();
+    this.save = new EventEmitter();
 
     this.schoolForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      cie: ['', Validators.required],
+      name: [this.school?.name, Validators.required],
+      cie: [this.school?.cie, Validators.required],
       address: this.formBuilder.group({
-        zipcode: [''],
-        street: [''],
-        complement: [''],
+        zipcode: [this.school?.address?.zipCode],
+        street: [this.school?.address?.street],
+        complement: [this.school?.address?.complement],
       }),
 
-      supervisor: ['', Validators.required],
+      supervisor: [this.school?.supervisor, Validators.required],
       classes: this.formBuilder.array([]),
       contacts: this.formBuilder.group({
         phones: this.formBuilder.array([this.formBuilder.control('')]),
-        email: ['', Validators.email],
+        email: [this.school?.contacts?.email, Validators.email],
       }),
     });
   }
@@ -96,9 +103,9 @@ export class CreateSchoolFormComponent implements OnDestroy {
     return this.phones.removeAt(index);
   }
 
-  save() {
+  handleSave() {
     if (this.schoolForm.valid) {
-      this.create.emit({ ...this.schoolForm.value });
+      this.save.emit({ ...this.schoolForm.value });
       this.clear();
     }
   }

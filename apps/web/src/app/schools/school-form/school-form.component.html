@@ -1,7 +1,7 @@
 <form
   class="md:w-3/4 lg:w-1/2 mx-auto flex flex-col gap-4"
   [formGroup]="schoolForm"
-  (ngSubmit)="$event.preventDefault(); save()"
+  (ngSubmit)="$event.preventDefault(); handleSave()"
 >
   <div class="form-group">
     <app-form-field label="Nome da Escola" [hasError]="hasError('name')">
